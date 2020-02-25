@@ -1,3 +1,3 @@
-var message = '';
+var logger = require('./logger');
 
-console.log(global.message);
+logger.writeText('message');
