@@ -1,7 +1,14 @@
-const fs = require('fs');
+const logger = require('./logger');
 
-fs.appendFile('greetings.txt', 'Hello World', function (err) {
+logger.writeText('Starting app.');
+
+const fs = require('fs');
+const os = require('os');
+
+const user = os.userInfo();
+
+fs.appendFile('greetings.txt', 'Hello ' + user.username + '!', (err) => {
     if(err) {
-        console.log('Unable to write to file');
+        logger.writeText('Unable to write to file');
     }
 });
