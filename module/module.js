@@ -1,3 +1,7 @@
-var logger = require('./logger');
+const fs = require('fs');
 
-logger.writeText('message');
+fs.appendFile('greetings.txt', 'Hello World', function (err) {
+    if(err) {
+        console.log('Unable to write to file');
+    }
+});
